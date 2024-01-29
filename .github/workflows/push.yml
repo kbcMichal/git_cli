@@ -23,4 +23,4 @@ jobs:
         uses: ./.github/actions/install
       - name: Push to Keboola Connection
         run: |
-          kbc push "#KeboolaCLI: commit $COMMIT_REF"
+          kbc push --force "#KeboolaCLI: commit $COMMIT_REF"
