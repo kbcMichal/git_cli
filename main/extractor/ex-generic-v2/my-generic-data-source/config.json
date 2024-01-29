@@ -1,0 +1,36 @@
+{
+  "parameters": {
+    "api": {
+      "baseUrl": "https://kubecost.ranger.ops.productboard.net/model/allocation",
+      "http": {
+        "headers": {
+          "Accept": "application/json"
+        }
+      }
+    },
+    "config": {
+      "incrementalOutput": false,
+      "debug": true,
+      "outputBucket": "ex-api-generic-kubecost",
+      "jobs": [
+        {
+          "endpoint": "?window=3d\u0026aggregate=namespace\u0026shareIdle=false\u0026accumulate=false",
+          "dataField": "data",
+          "dataType": "test"
+        }
+      ],
+      "mappings": {
+        "test": {
+          "__idle__": {
+            "type": "table",
+            "destination": "testing",
+            "tableMapping": {
+              "name": "name",
+              "start": "start"
+            }
+          }
+        }
+      }
+    }
+  }
+}

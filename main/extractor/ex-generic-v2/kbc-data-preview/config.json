@@ -1,0 +1,30 @@
+{
+  "parameters": {
+    "api": {
+      "baseUrl": "https://connection.keboola.com/v2/storage/",
+      "http": {
+        "headers": {
+          "Accept-encoding": "gzip",
+          "X-StorageApi-Token": {
+            "attr": "#storage_token"
+          }
+        }
+      }
+    },
+    "config": {
+      "debug": true,
+      "outputBucket": "ge-kbc-test",
+      "#storage_token": "KBC::ProjectSecure::eJwBYAGf/mE6Mjp7aTowO3M6MTM2OiLe9QIAv8VAFTweZlhtLghwU5c85FPtTFQcD148ksdMc8XSvrlMBoIyoDqWMhcHTAvVT5t7Fvgb0/8ZIE6Cfi5rpd25gS2Q3ghNEwdB7Zdss45btXwV9H4V/I3mbrm7ExPyx5eg0fO45rtv18sIPE9HKRKUVn9KQAcAD7vSpDT9myOBuM0uv1CQIjtpOjE7czoxODQ6IgECAwB4ZV7Pb+ceXfpJSJC/W88mh+as71hybdnxlvXMw4VnbcABfK3ep2VOWPq9QVFMhM6iJwAAAH4wfAYJKoZIhvcNAQcGoG8wbQIBADBoBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDJvVDsjqkIFtFh7vlwIBEIA7uAjuBuUkXNLZyemUDbEs2dAhCk8/4BYA+IuGgACojkmUdPrPO3CW05fGpxzPMhlNe2sirDGuQ8p9XowiO30995EW",
+      "jobs": [
+        {
+          "endpoint": "tables/in.c-ge-tutorial.content/data-preview/",
+          "dataField": "campaign_id",
+          "dataType": "content-data-preview",
+          "params": {
+            "limit": 1
+          }
+        }
+      ]
+    }
+  }
+}

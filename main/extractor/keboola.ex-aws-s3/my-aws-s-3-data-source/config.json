@@ -1,0 +1,7 @@
+{
+  "parameters": {
+    "loginType": "credentials",
+    "accessKeyId": "asdfd",
+    "#secretAccessKey": "KBC::ProjectSecure::eJwBMQHO/mE6Mjp7aTowO3M6OTA6It71AgBBqnLkfSaXH64izjqhIgs+yiY7/MnpddgQ5JDvCLq9IVmz5wAIyhE4hf/8B3nt5jPuXBX4oq4WSQlZtHntRD6QBUG7Rb1z0KrvX52tM4wkXoapCTOI0iI7aToxO3M6MTg0OiIBAgMAeGVez2/nHl36SUiQv1vPJofmrO9Ycm3Z8Zb1zMOFZ23AAQuIEQ4SZO2+C/5FfWnEjFQAAAB+MHwGCSqGSIb3DQEHBqBvMG0CAQAwaAYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAzazNYpilOdDWty5P0CARCAO4eksIxE7WtHIvC1rksTR+TYDQsvF9j/ZLxX1LqWGb9wMUJXmxNz8jXAlo4rRzKhidq5FnBeYonIsAtvIjt9yuB8zg=="
+  }
+}

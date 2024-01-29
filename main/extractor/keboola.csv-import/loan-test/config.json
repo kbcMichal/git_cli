@@ -1,0 +1,7 @@
+{
+  "destination": "in.c-csv-import.loan_test",
+  "incremental": false,
+  "primaryKey": [],
+  "delimiter": ",",
+  "enclosure": "\""
+}

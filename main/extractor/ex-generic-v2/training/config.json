@@ -1,0 +1,66 @@
+{
+  "parameters": {
+    "api": {
+      "baseUrl": "https://us4.api.mailchimp.com/3.0/",
+      "authentication": {
+        "type": "basic"
+      },
+      "pagination": {
+        "method": "offset",
+        "offsetParam": "offset",
+        "limitParam": "count",
+        "limit": 1
+      }
+    },
+    "config": {
+      "debug": true,
+      "username": "michal.hruska@keboola.com",
+      "#password": "KBC::ProjectSecure::eJwBUAGv/mE6Mjp7aTowO3M6MTIwOiLe9QIA8wHo8s3i888FL/73uAlwlOreIKtEJOLKlKwdFbDhFDp3ISNqFOBLd7XH5exjMZKE+IbTQ78idxM+I11n3NpYKdYaM1+jUAFb0TR9tHPU14jQ7RiWZvR6w301k26KGLuFrriylSdrVgDh40icBZQNU5FI0RAiO2k6MTtzOjE4NDoiAQIDAHhlXs9v5x5d+klIkL9bzyaH5qzvWHJt2fGW9czDhWdtwAE9e2GcNj3NL4670EctQLUiAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM2GawaMaLuzD16DHKAgEQgDsIOOykGHseMY+HcbX9R5Wy102JAYv4Sk4MOPJEKiU+0GMjGVEiGXB1Nk1ic/a/+vMfH9+8AikSVIaH3iI7fVDpi1Y=",
+      "outputBucket": "ge-tutorial",
+      "jobs": [
+        {
+          "endpoint": "campaigns",
+          "dataField": "campaigns",
+          "children": [
+            {
+              "endpoint": "campaigns/{campaign_id}/send-checklist",
+              "dataField": "items",
+              "placeholders": {
+                "campaign_id": "id"
+              }
+            },
+            {
+              "endpoint": "campaigns/{campaign_id}/content",
+              "dataField": ".",
+              "dataType": "content",
+              "placeholders": {
+                "campaign_id": "id"
+              }
+            }
+          ]
+        }
+      ],
+      "mappings": {
+        "content": {
+          "parent_id": {
+            "type": "user",
+            "mapping": {
+              "destination": "campaign_id",
+              "primaryKey": true
+            }
+          },
+          "plain_text": {
+            "mapping": {
+              "destination": "text"
+            }
+          },
+          "html": {
+            "mapping": {
+              "destination": "html"
+            }
+          }
+        }
+      }
+    }
+  }
+}

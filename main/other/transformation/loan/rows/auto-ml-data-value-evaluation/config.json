@@ -1,0 +1,35 @@
+{
+  "output": [],
+  "queries": [
+    "# This is a sample script.\n# Adjust accordingly to your input mapping, output mapping\n# and desired functionality.\n\n'''\nimport csv\n\nwith open('in/tables/input.csv', mode='rt', encoding='utf-8') as in_file, open('out/tables/output.csv', mode='wt', encoding='utf-8') as out_file:\n    lazy_lines = (line.replace('\\0', '') for line in in_file)\n    reader = csv.DictReader(lazy_lines, lineterminator='\\n')\n    writer = csv.DictWriter(out_file, fieldnames=reader.fieldnames, lineterminator='\\n')\n    writer.writeheader()\n\n    for row in reader\n        # do something and write row\n        writer.writerow(row)\n'''"
+  ],
+  "input": [
+    {
+      "source": "out.c-loan.LoanStatus",
+      "destination": "LoanStatus.csv",
+      "whereColumn": "",
+      "whereValues": [],
+      "whereOperator": "eq",
+      "columns": []
+    },
+    {
+      "source": "out.c-loan.ClientDetails",
+      "destination": "ClientDetails.csv",
+      "whereColumn": "",
+      "whereValues": [],
+      "whereOperator": "eq",
+      "columns": []
+    }
+  ],
+  "name": "AutoML_DataValueEvaluation",
+  "packages": [
+    "h2o",
+    "xgboost"
+  ],
+  "requires": [],
+  "backend": "docker",
+  "type": "python",
+  "id": "565222046",
+  "phase": 1,
+  "disabled": false
+}

@@ -1,0 +1,31 @@
+{
+  "output": [
+    {
+      "destination": "out.c-xml-to-table.cd_catalog",
+      "source": "xml_out.csv"
+    }
+  ],
+  "queries": [
+    "import pandas as pd\nfrom lxml import etree\nimport csv\n\nfile = \"in/tables/cd_catalog.csv\"\nfile = csv.reader(open(file), delimiter=',')\nfor line in file:\n    data = line[0]\n\nwith open('data.xml', 'w') as f_out:\n\tf_out.write(data)\n\ndata = 'data.xml'\ntree = etree.parse(data)\n\nlstKey = []\nlstValue = []\nfor p in tree.iter() :\n    lstKey.append(tree.getpath(p).replace(\"/\",\".\")[1:])\n    lstValue.append(p.text)\n\ndf = pd.DataFrame({'key' : lstKey, 'value' : lstValue})\ndf.sort_values('key')\ndf.to_csv('out/tables/xml_out.csv', index=False, sep=',')"
+  ],
+  "input": [
+    {
+      "source": "in.c-keboola-ex-http-566173936.cd_catalog",
+      "destination": "cd_catalog.csv",
+      "whereColumn": "",
+      "whereValues": [],
+      "whereOperator": "eq",
+      "columns": []
+    }
+  ],
+  "name": "Parse XML",
+  "packages": [
+    "lxml"
+  ],
+  "requires": [],
+  "backend": "docker",
+  "type": "python",
+  "id": "566176436",
+  "phase": 1,
+  "disabled": false
+}

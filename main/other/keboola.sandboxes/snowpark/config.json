@@ -1,0 +1,51 @@
+{
+  "parameters": {
+    "id": "858004955"
+  },
+  "storage": {
+    "input": {
+      "tables": [
+        {
+          "source": "in.c-csv-import.sales_train",
+          "destination": "sales_train",
+          "where_column": "",
+          "where_values": [],
+          "where_operator": "eq",
+          "columns": []
+        },
+        {
+          "source": "in.c-csv-import.loan_train",
+          "destination": "loan_train",
+          "where_column": "",
+          "where_values": [],
+          "where_operator": "eq",
+          "columns": []
+        },
+        {
+          "source": "in.c-csv-import.loan_test",
+          "destination": "loan_test",
+          "where_column": "",
+          "where_values": [],
+          "where_operator": "eq",
+          "columns": []
+        },
+        {
+          "source": "in.c-csv-import.sales_test",
+          "destination": "sales_test",
+          "where_column": "",
+          "where_values": [],
+          "where_operator": "eq",
+          "columns": []
+        },
+        {
+          "source": "in.c-csv-import.LoanClub",
+          "destination": "LoanClub",
+          "where_column": "",
+          "where_values": [],
+          "where_operator": "eq",
+          "columns": []
+        }
+      ]
+    }
+  }
+}

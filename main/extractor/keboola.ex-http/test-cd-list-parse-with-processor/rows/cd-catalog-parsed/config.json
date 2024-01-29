@@ -1,0 +1,47 @@
+{
+  "parameters": {
+    "path": "/cd_catalog.xml"
+  },
+  "processors": {
+    "after": [
+      {
+        "definition": {
+          "component": "kds-team.processor-xml2csv"
+        },
+        "parameters": {
+          "mapping": {
+            "TITLE": "title",
+            "ARTIST": "artist"
+          },
+          "append_row_nr": true,
+          "always_array": [],
+          "incremental": true,
+          "ingore_on_failure": false,
+          "root_node": "",
+          "in_type": "files"
+        }
+      },
+      {
+        "definition": {
+          "component": "keboola.processor-move-files"
+        },
+        "parameters": {
+          "direction": "tables",
+          "folder": "cd_catalog_parsed"
+        }
+      },
+      {
+        "definition": {
+          "component": "keboola.processor-create-manifest"
+        },
+        "parameters": {
+          "delimiter": ",",
+          "enclosure": "\"",
+          "incremental": false,
+          "primary_key": [],
+          "columns_from": "header"
+        }
+      }
+    ]
+  }
+}

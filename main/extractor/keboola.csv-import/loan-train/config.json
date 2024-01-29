@@ -1,0 +1,7 @@
+{
+  "destination": "in.c-csv-import.loan_train",
+  "incremental": false,
+  "primaryKey": [],
+  "delimiter": ",",
+  "enclosure": "\""
+}

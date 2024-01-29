@@ -1,0 +1,340 @@
+{
+  "version": 2,
+  "project": {
+    "id": 7322,
+    "apiHost": "connection.keboola.com"
+  },
+  "sortBy": "id",
+  "naming": {
+    "branch": "{branch_name}",
+    "config": "{component_type}/{component_id}/{config_name}",
+    "configRow": "rows/{config_row_name}",
+    "schedulerConfig": "schedules/{config_name}",
+    "sharedCodeConfig": "_shared/{target_component_id}",
+    "sharedCodeConfigRow": "codes/{config_row_name}",
+    "variablesConfig": "variables",
+    "variablesValuesRow": "values/{config_row_name}"
+  },
+  "allowedBranches": [
+    "__main__"
+  ],
+  "ignoredComponents": [],
+  "branches": [
+    {
+      "id": 576,
+      "path": "main"
+    }
+  ],
+  "configurations": [
+    {
+      "branchId": 576,
+      "componentId": "apac.ex-gmail-attachments",
+      "id": "813238085",
+      "path": "extractor/apac.ex-gmail-attachments/my-gmail-attachments-data-source",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "ex-generic-v2",
+      "id": "566110631",
+      "path": "extractor/ex-generic-v2/training",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "ex-generic-v2",
+      "id": "566138058",
+      "path": "extractor/ex-generic-v2/kbc-data-preview",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "ex-generic-v2",
+      "id": "566143044",
+      "path": "extractor/ex-generic-v2/kbc-list-tables",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "ex-generic-v2",
+      "id": "566152128",
+      "path": "extractor/ex-generic-v2/kbc-files",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "ex-generic-v2",
+      "id": "844929861",
+      "path": "extractor/ex-generic-v2/my-generic-data-source",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "kds-team.ex-ceps",
+      "id": "821043752",
+      "path": "extractor/kds-team.ex-ceps/my-ceps-data-source",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "kds-team.ex-http-extended",
+      "id": "808232741",
+      "path": "extractor/kds-team.ex-http-extended/gasnet-vc",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.csv-import",
+      "id": "564696389",
+      "path": "extractor/keboola.csv-import/sales-prediction",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.csv-import",
+      "id": "564697440",
+      "path": "extractor/keboola.csv-import/sales-prediction-test",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.csv-import",
+      "id": "565208320",
+      "path": "extractor/keboola.csv-import/loan-train",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.csv-import",
+      "id": "565215448",
+      "path": "extractor/keboola.csv-import/loan-test",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.csv-import",
+      "id": "565379716",
+      "path": "extractor/keboola.csv-import/loan-club",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.ex-aws-s3",
+      "id": "814935488",
+      "path": "extractor/keboola.ex-aws-s3/my-aws-s-3-data-source",
+      "rows": [
+        {
+          "id": "814935637",
+          "path": "rows/test"
+        }
+      ]
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.ex-email-attachments",
+      "id": "854478809",
+      "path": "extractor/keboola.ex-email-attachments/my-email-attachments-data-source",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.ex-email-attachments",
+      "id": "873081173",
+      "path": "extractor/keboola.ex-email-attachments/my-email-attachments-data-source-001",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.ex-google-analytics-v4",
+      "id": "805650318",
+      "path": "extractor/keboola.ex-google-analytics-v4/my-google-analytics-data-source",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.ex-google-drive",
+      "id": "565206506",
+      "path": "extractor/keboola.ex-google-drive/loan",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.ex-http",
+      "id": "566173936",
+      "path": "extractor/keboola.ex-http/test-cd-list",
+      "rows": [
+        {
+          "id": "566173971",
+          "path": "rows/cd-catalog"
+        }
+      ]
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.ex-http",
+      "id": "566180669",
+      "path": "extractor/keboola.ex-http/test-cd-list-parse-with-processor",
+      "rows": [
+        {
+          "id": "566173971",
+          "path": "rows/cd-catalog-parsed"
+        }
+      ]
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.ex-http",
+      "id": "808245565",
+      "path": "extractor/keboola.ex-http/ote-cr-teploty",
+      "rows": [
+        {
+          "id": "808247024",
+          "path": "rows/teploty-2022"
+        }
+      ]
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.python-transformation-v2",
+      "id": "869802465",
+      "path": "transformation/keboola.python-transformation-v2/test",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.sandboxes",
+      "id": "858004919",
+      "path": "other/keboola.sandboxes/snowpark",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.sandboxes",
+      "id": "858006379",
+      "path": "other/keboola.sandboxes/snowpark-001",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.sandboxes",
+      "id": "858008863",
+      "path": "other/keboola.sandboxes/snowpark-w-python-3-8",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.sandboxes",
+      "id": "869803860",
+      "path": "other/keboola.sandboxes/snowpark-demo",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.sandboxes",
+      "id": "870200243",
+      "path": "other/keboola.sandboxes/snowpark-consumer",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.sandboxes",
+      "id": "872648640",
+      "path": "other/keboola.sandboxes/segment",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.sandboxes",
+      "id": "880361897",
+      "path": "other/keboola.sandboxes/test",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.sandboxes",
+      "id": "986979843",
+      "path": "other/keboola.sandboxes/langchain",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.snowflake-transformation",
+      "id": "858029127",
+      "path": "transformation/keboola.snowflake-transformation/test",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.wr-db-snowflake",
+      "id": "940361583",
+      "path": "writer/keboola.wr-db-snowflake/my-snowflake-data-destination",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "keboola.wr-onedrive",
+      "id": "880358579",
+      "path": "writer/keboola.wr-onedrive/my-one-drive-excel-sheets-data-destination",
+      "rows": [
+        {
+          "id": "880360071",
+          "path": "rows/loan-club"
+        }
+      ]
+    },
+    {
+      "branchId": 576,
+      "componentId": "leochan.datahealth",
+      "id": "565166089",
+      "path": "application/leochan.datahealth/health-check-test",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "orchestrator",
+      "id": "861655357",
+      "path": "other/orchestrator/test",
+      "rows": []
+    },
+    {
+      "branchId": 576,
+      "componentId": "transformation",
+      "id": "565211171",
+      "path": "other/transformation/loan",
+      "rows": [
+        {
+          "id": "565211182",
+          "path": "rows/loan-train"
+        },
+        {
+          "id": "565222046",
+          "path": "rows/auto-ml-data-value-evaluation"
+        }
+      ]
+    },
+    {
+      "branchId": 576,
+      "componentId": "transformation",
+      "id": "566176394",
+      "path": "other/transformation/xml-to-table",
+      "rows": [
+        {
+          "id": "566176436",
+          "path": "rows/parse-xml"
+        }
+      ]
+    },
+    {
+      "branchId": 576,
+      "componentId": "transformation",
+      "id": "749920733",
+      "path": "other/transformation/support",
+      "rows": [
+        {
+          "id": "749920757",
+          "path": "rows/case-x-when"
+        }
+      ]
+    }
+  ]
+}

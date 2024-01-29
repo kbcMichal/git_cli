@@ -1,0 +1,7 @@
+{
+  "destination": "in.c-csv-import.LoanClub",
+  "incremental": false,
+  "primaryKey": [],
+  "delimiter": ",",
+  "enclosure": "\""
+}

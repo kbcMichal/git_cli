@@ -1,0 +1,28 @@
+{
+  "storage": {
+    "input": {
+      "tables": [
+        {
+          "source": "in.c-csv-import.LoanClub",
+          "destination": "in.c-csv-import.LoanClub.csv"
+        }
+      ]
+    }
+  },
+  "parameters": {
+    "append": false,
+    "workbook": {
+      "driveId": "",
+      "fileId": "",
+      "metadata": {
+        "name": ""
+      }
+    },
+    "worksheet": {
+      "id": "",
+      "metadata": {
+        "name": ""
+      }
+    }
+  }
+}

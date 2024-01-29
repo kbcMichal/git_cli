@@ -1,0 +1,13 @@
+{
+  "crontabRecord": null,
+  "crontabTimezone": null,
+  "token": {
+    "id": "497779",
+    "description": "Orchestrator Test"
+  },
+  "active": true,
+  "tasks": [],
+  "notifications": [],
+  "variableValuesId": null,
+  "variableValuesData": null
+}

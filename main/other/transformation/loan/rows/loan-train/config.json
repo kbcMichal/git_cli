@@ -1,0 +1,769 @@
+{
+  "output": [
+    {
+      "destination": "out.c-loan.LoanStatus",
+      "source": "LoanStatus"
+    },
+    {
+      "destination": "out.c-loan.ClientDetails",
+      "source": "ClientDetails"
+    }
+  ],
+  "queries": [
+    "CREATE TABLE \"LoanStatusTemp\" AS\nSELECT \n    SK_ID_CURR \"ClientId\",\n    TARGET \"Target\",\n    uniform(0::float,1::float,random()) as \"RND\"\nFROM \"loan_train\";",
+    "CREATE TABLE \"LoanStatus\" AS\nSELECT \n    \"ClientId\",\n    \"Target\",\n    CASE WHEN \"RND\"\u003c0.7 THEN 1 ELSE 0 END AS \"TrainFlag\"\nFROM \"LoanStatusTemp\";",
+    "CREATE TABLE \"ClientDetails\" AS\nSELECT \n    SK_ID_CURR \"ClientId\",\n    CODE_GENDER,\n    FLAG_OWN_CAR,\n    FLAG_OWN_REALTY,\n    CNT_CHILDREN,\n    AMT_INCOME_TOTAL,\n    NAME_INCOME_TYPE,\n    NAME_FAMILY_STATUS,\n    NAME_HOUSING_TYPE,\n    NAME_EDUCATION_TYPE,\n    (TO_NUMERIC(DAYS_BIRTH)*-1)/365 AS \"AGE\",\n    (TO_NUMERIC(DAYS_EMPLOYED)*-1)/365 AS \"YEARS_EMPLOYED\",\n    OCCUPATION_TYPE,\n    CNT_FAM_MEMBERS\nFROM \"loan_train\";"
+  ],
+  "input": [
+    {
+      "source": "in.c-csv-import.loan_train",
+      "destination": "loan_train",
+      "datatypes": {
+        "YEARS_BEGINEXPLUATATION_MEDI": {
+          "column": "YEARS_BEGINEXPLUATATION_MEDI",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "BASEMENTAREA_MEDI": {
+          "column": "BASEMENTAREA_MEDI",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_2": {
+          "column": "FLAG_DOCUMENT_2",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "DEF_60_CNT_SOCIAL_CIRCLE": {
+          "column": "DEF_60_CNT_SOCIAL_CIRCLE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "DAYS_REGISTRATION": {
+          "column": "DAYS_REGISTRATION",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "APARTMENTS_MODE": {
+          "column": "APARTMENTS_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_3": {
+          "column": "FLAG_DOCUMENT_3",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "DAYS_LAST_PHONE_CHANGE": {
+          "column": "DAYS_LAST_PHONE_CHANGE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "EMERGENCYSTATE_MODE": {
+          "column": "EMERGENCYSTATE_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "REGION_RATING_CLIENT": {
+          "column": "REGION_RATING_CLIENT",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_4": {
+          "column": "FLAG_DOCUMENT_4",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "AMT_ANNUITY": {
+          "column": "AMT_ANNUITY",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "DEF_30_CNT_SOCIAL_CIRCLE": {
+          "column": "DEF_30_CNT_SOCIAL_CIRCLE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_5": {
+          "column": "FLAG_DOCUMENT_5",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "REG_CITY_NOT_WORK_CITY": {
+          "column": "REG_CITY_NOT_WORK_CITY",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_EMP_PHONE": {
+          "column": "FLAG_EMP_PHONE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "COMMONAREA_MEDI": {
+          "column": "COMMONAREA_MEDI",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "LANDAREA_MEDI": {
+          "column": "LANDAREA_MEDI",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "ENTRANCES_MODE": {
+          "column": "ENTRANCES_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_6": {
+          "column": "FLAG_DOCUMENT_6",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "NAME_EDUCATION_TYPE": {
+          "column": "NAME_EDUCATION_TYPE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "AMT_INCOME_TOTAL": {
+          "column": "AMT_INCOME_TOTAL",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "AMT_REQ_CREDIT_BUREAU_DAY": {
+          "column": "AMT_REQ_CREDIT_BUREAU_DAY",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLOORSMAX_MODE": {
+          "column": "FLOORSMAX_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "NONLIVINGAPARTMENTS_MEDI": {
+          "column": "NONLIVINGAPARTMENTS_MEDI",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "LIVINGAREA_MEDI": {
+          "column": "LIVINGAREA_MEDI",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_7": {
+          "column": "FLAG_DOCUMENT_7",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "OBS_60_CNT_SOCIAL_CIRCLE": {
+          "column": "OBS_60_CNT_SOCIAL_CIRCLE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "YEARS_BEGINEXPLUATATION_MODE": {
+          "column": "YEARS_BEGINEXPLUATATION_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "ORGANIZATION_TYPE": {
+          "column": "ORGANIZATION_TYPE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "BASEMENTAREA_MODE": {
+          "column": "BASEMENTAREA_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_8": {
+          "column": "FLAG_DOCUMENT_8",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "NAME_TYPE_SUITE": {
+          "column": "NAME_TYPE_SUITE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "HOUSETYPE_MODE": {
+          "column": "HOUSETYPE_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_9": {
+          "column": "FLAG_DOCUMENT_9",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_OWN_CAR": {
+          "column": "FLAG_OWN_CAR",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "REG_CITY_NOT_LIVE_CITY": {
+          "column": "REG_CITY_NOT_LIVE_CITY",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_EMAIL": {
+          "column": "FLAG_EMAIL",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "LIVINGAREA_AVG": {
+          "column": "LIVINGAREA_AVG",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "OBS_30_CNT_SOCIAL_CIRCLE": {
+          "column": "OBS_30_CNT_SOCIAL_CIRCLE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "AMT_GOODS_PRICE": {
+          "column": "AMT_GOODS_PRICE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "COMMONAREA_MODE": {
+          "column": "COMMONAREA_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "LANDAREA_MODE": {
+          "column": "LANDAREA_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "NONLIVINGAPARTMENTS_AVG": {
+          "column": "NONLIVINGAPARTMENTS_AVG",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "NONLIVINGAPARTMENTS_MODE": {
+          "column": "NONLIVINGAPARTMENTS_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "EXT_SOURCE_1": {
+          "column": "EXT_SOURCE_1",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "AMT_REQ_CREDIT_BUREAU_WEEK": {
+          "column": "AMT_REQ_CREDIT_BUREAU_WEEK",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "LANDAREA_AVG": {
+          "column": "LANDAREA_AVG",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "COMMONAREA_AVG": {
+          "column": "COMMONAREA_AVG",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "EXT_SOURCE_2": {
+          "column": "EXT_SOURCE_2",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "LIVINGAREA_MODE": {
+          "column": "LIVINGAREA_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "LIVE_CITY_NOT_WORK_CITY": {
+          "column": "LIVE_CITY_NOT_WORK_CITY",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FONDKAPREMONT_MODE": {
+          "column": "FONDKAPREMONT_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "EXT_SOURCE_3": {
+          "column": "EXT_SOURCE_3",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "OCCUPATION_TYPE": {
+          "column": "OCCUPATION_TYPE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "BASEMENTAREA_AVG": {
+          "column": "BASEMENTAREA_AVG",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "YEARS_BEGINEXPLUATATION_AVG": {
+          "column": "YEARS_BEGINEXPLUATATION_AVG",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_OWN_REALTY": {
+          "column": "FLAG_OWN_REALTY",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_20": {
+          "column": "FLAG_DOCUMENT_20",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "SK_ID_CURR": {
+          "column": "SK_ID_CURR",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "REGION_RATING_CLIENT_W_CITY": {
+          "column": "REGION_RATING_CLIENT_W_CITY",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_MOBIL": {
+          "column": "FLAG_MOBIL",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLOORSMAX_AVG": {
+          "column": "FLOORSMAX_AVG",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "AMT_CREDIT": {
+          "column": "AMT_CREDIT",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_10": {
+          "column": "FLAG_DOCUMENT_10",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_21": {
+          "column": "FLAG_DOCUMENT_21",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "NAME_HOUSING_TYPE": {
+          "column": "NAME_HOUSING_TYPE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "ENTRANCES_AVG": {
+          "column": "ENTRANCES_AVG",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLOORSMIN_MEDI": {
+          "column": "FLOORSMIN_MEDI",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "TARGET": {
+          "column": "TARGET",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "TOTALAREA_MODE": {
+          "column": "TOTALAREA_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_11": {
+          "column": "FLAG_DOCUMENT_11",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "LIVINGAPARTMENTS_MEDI": {
+          "column": "LIVINGAPARTMENTS_MEDI",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "WALLSMATERIAL_MODE": {
+          "column": "WALLSMATERIAL_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_12": {
+          "column": "FLAG_DOCUMENT_12",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "CODE_GENDER": {
+          "column": "CODE_GENDER",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_WORK_PHONE": {
+          "column": "FLAG_WORK_PHONE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "REGION_POPULATION_RELATIVE": {
+          "column": "REGION_POPULATION_RELATIVE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "DAYS_ID_PUBLISH": {
+          "column": "DAYS_ID_PUBLISH",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_13": {
+          "column": "FLAG_DOCUMENT_13",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "NAME_CONTRACT_TYPE": {
+          "column": "NAME_CONTRACT_TYPE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "APARTMENTS_AVG": {
+          "column": "APARTMENTS_AVG",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "AMT_REQ_CREDIT_BUREAU_YEAR": {
+          "column": "AMT_REQ_CREDIT_BUREAU_YEAR",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_14": {
+          "column": "FLAG_DOCUMENT_14",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "CNT_CHILDREN": {
+          "column": "CNT_CHILDREN",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "DAYS_EMPLOYED": {
+          "column": "DAYS_EMPLOYED",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "AMT_REQ_CREDIT_BUREAU_MON": {
+          "column": "AMT_REQ_CREDIT_BUREAU_MON",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_15": {
+          "column": "FLAG_DOCUMENT_15",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "REG_REGION_NOT_WORK_REGION": {
+          "column": "REG_REGION_NOT_WORK_REGION",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "NONLIVINGAREA_AVG": {
+          "column": "NONLIVINGAREA_AVG",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "CNT_FAM_MEMBERS": {
+          "column": "CNT_FAM_MEMBERS",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_16": {
+          "column": "FLAG_DOCUMENT_16",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLOORSMIN_MODE": {
+          "column": "FLOORSMIN_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "DAYS_BIRTH": {
+          "column": "DAYS_BIRTH",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "ELEVATORS_MEDI": {
+          "column": "ELEVATORS_MEDI",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_17": {
+          "column": "FLAG_DOCUMENT_17",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "YEARS_BUILD_MEDI": {
+          "column": "YEARS_BUILD_MEDI",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "ELEVATORS_AVG": {
+          "column": "ELEVATORS_AVG",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "LIVINGAPARTMENTS_MODE": {
+          "column": "LIVINGAPARTMENTS_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_18": {
+          "column": "FLAG_DOCUMENT_18",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "YEARS_BUILD_AVG": {
+          "column": "YEARS_BUILD_AVG",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "NONLIVINGAREA_MEDI": {
+          "column": "NONLIVINGAREA_MEDI",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "NAME_FAMILY_STATUS": {
+          "column": "NAME_FAMILY_STATUS",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_DOCUMENT_19": {
+          "column": "FLAG_DOCUMENT_19",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "AMT_REQ_CREDIT_BUREAU_HOUR": {
+          "column": "AMT_REQ_CREDIT_BUREAU_HOUR",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "OWN_CAR_AGE": {
+          "column": "OWN_CAR_AGE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "APARTMENTS_MEDI": {
+          "column": "APARTMENTS_MEDI",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_PHONE": {
+          "column": "FLAG_PHONE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "REG_REGION_NOT_LIVE_REGION": {
+          "column": "REG_REGION_NOT_LIVE_REGION",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "WEEKDAY_APPR_PROCESS_START": {
+          "column": "WEEKDAY_APPR_PROCESS_START",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "NAME_INCOME_TYPE": {
+          "column": "NAME_INCOME_TYPE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "AMT_REQ_CREDIT_BUREAU_QRT": {
+          "column": "AMT_REQ_CREDIT_BUREAU_QRT",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLAG_CONT_MOBILE": {
+          "column": "FLAG_CONT_MOBILE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "ELEVATORS_MODE": {
+          "column": "ELEVATORS_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "YEARS_BUILD_MODE": {
+          "column": "YEARS_BUILD_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "LIVINGAPARTMENTS_AVG": {
+          "column": "LIVINGAPARTMENTS_AVG",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "LIVE_REGION_NOT_WORK_REGION": {
+          "column": "LIVE_REGION_NOT_WORK_REGION",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLOORSMIN_AVG": {
+          "column": "FLOORSMIN_AVG",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "FLOORSMAX_MEDI": {
+          "column": "FLOORSMAX_MEDI",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "ENTRANCES_MEDI": {
+          "column": "ENTRANCES_MEDI",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "NONLIVINGAREA_MODE": {
+          "column": "NONLIVINGAREA_MODE",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        },
+        "HOUR_APPR_PROCESS_START": {
+          "column": "HOUR_APPR_PROCESS_START",
+          "type": "VARCHAR",
+          "length": null,
+          "convertEmptyValuesToNull": false
+        }
+      },
+      "whereColumn": "",
+      "whereValues": [],
+      "whereOperator": "eq",
+      "columns": []
+    }
+  ],
+  "name": "LoanTrain",
+  "packages": [],
+  "requires": [],
+  "backend": "snowflake",
+  "type": "simple",
+  "id": "565211182",
+  "phase": 1,
+  "disabled": false
+}
