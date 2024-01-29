@@ -17,7 +17,7 @@ st.set_page_config(
 def create_session_object():
     os.environ["snowpark_account"] = 'keboola' #Dont change
     os.environ["snowpark_user"] = 'SAPI_WORKSPACE_858004958'
-    os.environ["snowpark_password"] = '8Ueed9Tf3tx52QfvF5egz7SdtsweLMVJ'
+    os.environ["snowpark_password"] = 'dfdsfasdfs'
     os.environ["snowpark_warehouse"] = 'KEBOOLA_PROD'
     os.environ["snowpark_database"] = 'SAPI_7322'
     os.environ["snowpark_schema"] = 'WORKSPACE_858004958'
