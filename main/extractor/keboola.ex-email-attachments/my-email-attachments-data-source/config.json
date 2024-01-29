@@ -1,9 +1,0 @@
-{
-  "parameters": {
-    "email": "7322-854478809-628368d9ef538@import.keboola.com",
-    "delimiter": ",",
-    "enclosure": "\"",
-    "primaryKey": [],
-    "incremental": false
-  }
-}

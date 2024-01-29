@@ -1,7 +1,0 @@
-{
-  "destination": "in.c-csv-import.sales_train",
-  "incremental": false,
-  "primaryKey": [],
-  "delimiter": ",",
-  "enclosure": "\""
-}

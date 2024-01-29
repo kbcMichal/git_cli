@@ -1,8 +1,0 @@
-{
-  "queries": [
-    {
-      "q": "suuubject has:attachment newer_than:3d",
-      "needs_processors": true
-    }
-  ]
-}
